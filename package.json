@@ -1,0 +1,27 @@
+{
+  "name": "iborg-connector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "pkg": "pkg src/index.js --targets node12-linux-x64,node12-macos-x64,node12-windows-x64 -o ./binaries/bridge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genedig/iborg-connector.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genedig/iborg-connector/issues"
+  },
+  "homepage": "https://github.com/genedig/iborg-connector#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "net": "^1.0.2",
+    "pkg": "^4.4.9",
+    "uuid": "^7.0.2"
+  }
+}
