@@ -1,9 +1,10 @@
 const net = require('net');
 const crypto = require('crypto');
+const { v4: uuidV4 } = require('uuid');
 
 // Neurosky Client
 const client = new net.Socket(),
-    clientID = '123',
+    clientID = uuidV4(),
     appName = `iBorg Client ${clientID}`,
     appKey = crypto.createHash('sha1').update(appName).digest('hex').toString(),
     enableRawOutput = true,
