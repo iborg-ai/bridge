@@ -1,5 +1,5 @@
 {
-  "name": "iborg-connector",
+  "name": "bridge",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/genedig/iborg-connector.git"
+    "url": "git+https://github.com/iborg-ai/bridge.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/genedig/iborg-connector/issues"
+    "url": "https://github.com/iborg-ai/bridge/issues"
   },
-  "homepage": "https://github.com/genedig/iborg-connector#readme",
+  "homepage": "https://github.com/iborg-ai/bridge#readme",
   "dependencies": {
     "crypto": "^1.0.1",
     "net": "^1.0.2",
