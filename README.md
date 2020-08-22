@@ -19,14 +19,14 @@ To clone the repository,
 
 Via SSH:
 ```bash
-git clone git@github.com:genedig/iborg-connector.git
+git clone git@github.com:iborg-ai/bridge.git
 ```
 
 or
 
 Via HTTPS:
 ```bash
-git clone https://github.com/genedig/iborg-connector.git
+git clone https://github.com/iborg-ai/bridge.git
 ```
 
 ### 1.4 Install the node modules
