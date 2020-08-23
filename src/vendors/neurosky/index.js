@@ -17,17 +17,22 @@ let clientConnected = false;
 const Connect = () => {
     try {
         client.connect(13854, '127.0.0.1', () => {
-            console.log('Connected [OK]');
+            console.log('[OK] Connected');
             clientConnected = true;
             if (client.writable) {
                 client.write(JSON.stringify({ appName, appKey, enableRawOutput, format }));
                 configSent = true;
-                console.log('Configuration data sent [OK]');
+                console.log('[OK] Configuration data sent');
             }
         });
     } catch (error) {
+        client.destroy();
         console.error(error);
     }
+};
+
+const Destroy = () => {
+    client.destroy();
 };
 
 const GetConnectedStatus = () => {
@@ -36,7 +41,7 @@ const GetConnectedStatus = () => {
 
 
 client.on('data', (data) => {
-    if (configSent) {
+    if (configSent && data) {
         try {
             let json = JSON.parse(data.toString());
             if (json.hasOwnProperty('rawEeg') || json.hasOwnProperty('rawEegMulti')) {
@@ -46,6 +51,7 @@ client.on('data', (data) => {
                     values: Object.values(json.rawEegMulti) || [json.rawEeg]
                 };
                 // Do something with the data packet
+                console.log(JSON.stringify(packet, null, 2));
             } else {
             }
         } catch (error) {
@@ -55,14 +61,17 @@ client.on('data', (data) => {
 });
 
 client.on('close', () => {
+    client.destroy();
     clientConnected = false;
 });
 
 client.on('error', () => {
+    client.destroy();
     clientConnected = false;
 });
 
 module.exports = {
     Connect,
-    GetConnectedStatus
+    GetConnectedStatus,
+    Destroy
 };
