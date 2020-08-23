@@ -45,5 +45,5 @@ Connect your EEG headset via bluetooth. The setup process is pretty straight for
 
 From the root of the repository, run
 ```bash
-node src/index.js
+npm start
 ```
