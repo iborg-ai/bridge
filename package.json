@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/iborg-ai/bridge#readme",
   "dependencies": {
-    "crypto": "^1.0.1",
-    "net": "^1.0.2",
+    "@serialport/parser-readline": "^9.0.1",
     "pkg": "^4.4.9",
-    "uuid": "^7.0.2"
+    "serialport": "^9.0.1",
+    "socket.io": "^2.3.0"
   }
 }
