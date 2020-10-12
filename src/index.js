@@ -1,70 +1,55 @@
-const SerialPort = require('serialport');
 const server = require('http').createServer();
-const devices = [];
-const isTest = false;
-
 const io = require('socket.io')(server, {
 	serveClient: true,
 	pingInterval: 10000,
 	pingTimeout: 5000,
 	cookie: false
 });
-
+const net = require('net');
 server.listen(8080);
 
-if (isTest) {
-	console.log('Running in test mode ...');
-	setInterval(() => {
-		const data = {
-			rawEeg: [
-				Math.random()
-			]
-		};
-		console.log(data);
-		io.emit('data', data);
-	}, 10);
-} else {
-	SerialPort.list().then((ports) => {
-		ports.forEach((port) => {
-			const { path } = port;
-			if (path.includes('MindWaveMobile-Serial')) {
-				devices.push({
-					manufacturer: 'MindWaveMobile',
-					path
-				});
+let isSocketConnected = false;
+let authReceived = false;
+
+const connect = () => {
+	if (!isSocketConnected) {
+		const socket = net.createConnection({ port: 13854 }, () => {
+			console.log('Connected to ThinkGear Connector');
+			isSocketConnected = true;
+			socket.setDefaultEncoding('utf8');
+			socket.setEncoding('utf8');
+			let timer = setInterval(() => {
+				if (!authReceived && socket.writable) {
+					console.log('Making authorization request');
+					socket.write(JSON.stringify({ appName: "Brainwave Shooters", appKey: "9f54141b4b4c567c558d3a76cb8d715cbde03096", enableRawOutput: true, format:"Json"}));
+				}
+			}, 5000);
+		});
+		socket.on('data', (data) => {
+			try {
+				const json = JSON.parse(data);
+				console.log(json);
+				if (json.rawEeg) {
+					io.emit('data', json);
+				}
+			} catch (error) {
+				console.log(data);
 			}
 		});
+		socket.on('end', () => {
+			console.log('Disconnected from ThinkGear Connector');
+			isSocketConnected = false;
+			setTimeout(() => {
+				connect();
+			}, 5000);
+		});
+		socket.on('error', (error) => {
+			console.error(error);
+			setTimeout(() => {
+				connect();
+			}, 5000);
+		});
+	}
+};
 
-		if (devices.length > 0) {
-			console.log(JSON.stringify(devices, null, 2));
-			devices.forEach((device) => {
-				const port = new SerialPort(device.path, { autoOpen: false, baudRate: 9600 });
-				console.log('Opening port: ', device.path);
-				port.on('open', () => {
-					if (port.writable) {
-						port.write(JSON.stringify({ "appName": "Brainwave Shooters", "appKey": "9f54141b4b4c567c558d3a76cb8d715cbde0306", "enableRawOutput": true, "format": "Json" }));
-					}
-					console.log('Opened Port: ', device.path);
-				});
-				port.on('data', (data) => {
-					console.log('Incoming data on: ', device.path);
-					console.log(data.toJSON());
-					io.emit('data', {
-						rawEeg: [Math.random()]
-					});
-				});
-				port.on('error', (error) => {
-					console.error('Error occured on: ', device.path);
-					console.error(error);
-				});
-				port.open((error) => {
-					if (error) {
-						console.error(error);
-					}
-				});
-			});
-		} else {
-			console.log('No supported headset is connected');
-		}
-	});
-}
+connect();

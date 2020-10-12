@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/iborg-ai/bridge#readme",
   "dependencies": {
-    "@serialport/parser-readline": "^9.0.1",
     "pkg": "^4.4.9",
     "serialport": "^9.0.1",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^2.1.11"
   }
 }
