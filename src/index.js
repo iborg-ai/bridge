@@ -1,4 +1,6 @@
 const server = require("http").createServer();
+const WebSocket = require('ws');
+const Cortex = require('./cortex');
 const io = require("socket.io")(server, {
   serveClient: true,
   pingInterval: 10000,
@@ -37,7 +39,15 @@ const connect = () => {
         const json = JSON.parse(data);
         console.log(json);
         if (json.rawEeg) {
-          io.emit("data", json);
+          if(Array.isArray(json.rawEeg)){
+            io.emit("data", {
+              rawEeg: json.rawEeg
+            });
+          } else {
+            io.emit("data", {
+              rawEeg: [json.rawEeg]
+            });
+          }
         }
       } catch (error) {
         console.log(data);
@@ -58,5 +68,24 @@ const connect = () => {
     });
   }
 };
-
 connect();
+
+let socketUrl = 'wss://localhost:6868'
+let user = {
+    license: "9378fd83-1e8e-4d42-b3aa-ae6e124877a8",
+    clientId: "eWWoNdPglc7izb3teTlTh3LJh7XSJ9sETqexUM0L",
+    clientSecret: "wu65w92gMNWnzlKvMWIIddCcDGE9lVrfmWi8mJHX8Ak5oiYKIGFUQzFIQAdax4fG2OKEWVijYpv7OSCHBtesBUXPx8WivClmjKADBdS0KLXt15rVBrCQKrTtC1t3NEuI",
+    debit: 1
+};
+
+let c = new Cortex(user, socketUrl)
+let streams = ['eeg']
+c.sub(streams);
+
+setInterval(() => {
+  let eeg = c.getEeg();
+  if(eeg && eeg.length > 0){
+    io.emit("data", {rawEeg: eeg.filter(e => typeof e === 'number')});
+  }
+}, 10);
+
