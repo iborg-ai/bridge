@@ -13,6 +13,8 @@ server.listen(8080);
 let isSocketConnected = false;
 let authReceived = false;
 
+let test = true;
+
 const connect = () => {
   if (!isSocketConnected) {
     const socket = net.createConnection({ port: 13854 }, () => {
@@ -61,7 +63,6 @@ const connect = () => {
       }, 5000);
     });
     socket.on("error", (error) => {
-      console.error(error);
       setTimeout(() => {
         connect();
       }, 5000);
@@ -72,9 +73,9 @@ connect();
 
 let socketUrl = 'wss://localhost:6868'
 let user = {
-    license: "9378fd83-1e8e-4d42-b3aa-ae6e124877a8",
-    clientId: "eWWoNdPglc7izb3teTlTh3LJh7XSJ9sETqexUM0L",
-    clientSecret: "wu65w92gMNWnzlKvMWIIddCcDGE9lVrfmWi8mJHX8Ak5oiYKIGFUQzFIQAdax4fG2OKEWVijYpv7OSCHBtesBUXPx8WivClmjKADBdS0KLXt15rVBrCQKrTtC1t3NEuI",
+    license: "f765db7b-3656-49a3-bca9-d9399859e88c",
+    clientId: "aL8VXfiPcV16rGNb9mYwe5EH7ELQSlWaSZhiKZaj",
+    clientSecret: "ZlMtktZyNjKalQku6CbGPg5ZCBMeF9EV5xX9OczTIfn5mkIJoXxFshQHbVdZDjSSkNfxJbsUOBGga0xpwQ0JOk6JzdsK9u2WblIDqxUZA6YBhe4lNrHK2nhqV3i0rNOg",
     debit: 1
 };
 
@@ -86,6 +87,11 @@ setInterval(() => {
   let eeg = c.getEeg();
   if(eeg && eeg.length > 0){
     io.emit("data", {rawEeg: eeg.filter(e => typeof e === 'number')});
+  } else {
+    if(test) {
+      eeg = Array.from(new Array(6)).map(e => Math.random());
+      io.emit("data", {rawEeg: eeg.filter(e => typeof e === 'number')});
+    }
   }
 }, 10);
 
