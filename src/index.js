@@ -77,7 +77,7 @@ let coreConnected = false;
 let coreClientId = uuid();
 const connectToCore = () => {
   try {
-    socketCore = new WebSocket('ws://127.0.0.1:3000?type=bridge&token=' + coreClientId);
+    socketCore = new WebSocket('wss://iborg.ai:8443?type=bridge&token=' + coreClientId);
     socketCore.on('open', () => {
       coreConnected = true;
       console.log('Connected to Core');
@@ -93,6 +93,13 @@ const connectToCore = () => {
   }
 }
 connectToCore();
+
+setInterval(() => {
+  if(!coreConnected){
+    console.log('Reconnecting to core ...');
+    connectToCore();
+  }
+}, 2000);
 
 let c;
 const connectToCortex = () => {
