@@ -14,7 +14,7 @@ server.listen(process.env.PORT || '8080');
 let isSocketConnected = false;
 let authReceived = false;
 
-let test = true;
+let test = false;
 
 const connect = () => {
   if (!isSocketConnected) {
