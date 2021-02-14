@@ -98,6 +98,7 @@ class Cortex {
             }
             socket.send(JSON.stringify(authorizeRequest))
             socket.on('message', (data)=>{
+                console.log(data);
                 try {
                     if(JSON.parse(data)['id']==AUTHORIZE_ID){
                         let cortexToken = JSON.parse(data)['result']['cortexToken']

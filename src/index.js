@@ -107,8 +107,8 @@ const connectToCortex = () => {
     let socketUrl = 'wss://localhost:6868'
     let user = {
       license: "f765db7b-3656-49a3-bca9-d9399859e88c",
-      clientId: "aL8VXfiPcV16rGNb9mYwe5EH7ELQSlWaSZhiKZaj",
-      clientSecret: "ZlMtktZyNjKalQku6CbGPg5ZCBMeF9EV5xX9OczTIfn5mkIJoXxFshQHbVdZDjSSkNfxJbsUOBGga0xpwQ0JOk6JzdsK9u2WblIDqxUZA6YBhe4lNrHK2nhqV3i0rNOg",
+      clientId: "CB7sfG129c2V5UmJ4oidM81UoHNyuQHD19i1DM03", //CB7sfG129c2V5UmJ4oidM81UoHNyuQHD19i1DM03
+      clientSecret: "ggfCbFRQppbTaSD73M6y18oVRg0fRkIxnew6XlshuYpN3Sn2CFeEzVHxYvhPF2xco48kl7eNHNTLKWJvxKGZMVWah60GVMF52GJXSZPciNUBX4LJkZSqofgqlGL6en7v", //ggfCbFRQppbTaSD73M6y18oVRg0fRkIxnew6XlshuYpN3Sn2CFeEzVHxYvhPF2xco48kl7eNHNTLKWJvxKGZMVWah60GVMF52GJXSZPciNUBX4LJkZSqofgqlGL6en7v
       debit: 1
     };
     c = new Cortex(user, socketUrl)
@@ -121,6 +121,7 @@ const connectToCortex = () => {
     }, 5000);
   }
 }
+connectToCortex();
 
 setInterval(() => {
   let eeg = c ? c.getEeg() : null;
