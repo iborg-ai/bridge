@@ -106,9 +106,9 @@ const connectToCortex = () => {
   try {
     let socketUrl = 'wss://localhost:6868'
     let user = {
-      license: "f765db7b-3656-49a3-bca9-d9399859e88c",
-      clientId: "CB7sfG129c2V5UmJ4oidM81UoHNyuQHD19i1DM03", //CB7sfG129c2V5UmJ4oidM81UoHNyuQHD19i1DM03
-      clientSecret: "ggfCbFRQppbTaSD73M6y18oVRg0fRkIxnew6XlshuYpN3Sn2CFeEzVHxYvhPF2xco48kl7eNHNTLKWJvxKGZMVWah60GVMF52GJXSZPciNUBX4LJkZSqofgqlGL6en7v", //ggfCbFRQppbTaSD73M6y18oVRg0fRkIxnew6XlshuYpN3Sn2CFeEzVHxYvhPF2xco48kl7eNHNTLKWJvxKGZMVWah60GVMF52GJXSZPciNUBX4LJkZSqofgqlGL6en7v
+      license: "fe033c61-0269-4d3b-aef0-aadadc33c0ff",
+      clientId: "CB7sfG129c2V5UmJ4oidM81UoHNyuQHD19i1DM03",
+      clientSecret: "ggfCbFRQppbTaSD73M6y18oVRg0fRkIxnew6XlshuYpN3Sn2CFeEzVHxYvhPF2xco48kl7eNHNTLKWJvxKGZMVWah60GVMF52GJXSZPciNUBX4LJkZSqofgqlGL6en7v",
       debit: 1
     };
     c = new Cortex(user, socketUrl)
