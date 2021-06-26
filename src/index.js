@@ -7,6 +7,7 @@ const io = require("socket.io")(server, {
   pingInterval: 10000,
   pingTimeout: 5000,
   cookie: false,
+  origins: ["http://127.0.0.1:4200", "https://iborg.ai"]
 });
 const net = require("net");
 server.listen(process.env.PORT || '8080');
