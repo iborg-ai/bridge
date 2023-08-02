@@ -1,21 +1,36 @@
 # iborg-connector
 
-## 1. Setup
+## Description
+Bridge is a connector for extracting the raw stream data from ThinkGearConnector and transmitting it to the website Iborg.ai. Data processing and visualization will all be preceded by the web server.
 
-### 1.1 Download the necessary tools
+## Headset Support
 
-Basic toolset includes
-- Visual Studio Code or any other code editor
-- Git (version 2+)
-- Node.js v12.x or above
-- NeuroSky ThinkGear Connector (separate packages for [macOS](http://store.neurosky.com/products/mac-developer-tools-4-0) and [Windows](http://store.neurosky.com/products/pc-developer-tools-4-0) are available)
+NeuroSky MindWave Mobile 2 EEG Sensor Starter Kit is supported by our project.
 
-### 1.2 Install the above tools
+## Download
 
-You will have to digitally purchase the NeuroSky SDK from their store for 0 $.
+[GitHub](https://github.com/iborg-ai/bridge)
 
-### 1.3 Clone the repositiory
-To clone the repository,
+ *  MacOS Supported: Sierra, High Sierra, Mojave, higher may also avaliable
+ 
+ *  Windows Supported: Win10, Win11
+ 
+[ThinkGearConnector](https://developer.neurosky.com/docs/doku.php?id=thinkgear_connector_tgc)
+
+*  Supported: Windows, Mac OS
+
+*  You might have to digitally purchase the NeuroSky SDK from their store for 0 $.
+
+[Node.js](https://nodejs.org/en) 
+
+*  v12.x or above
+
+## Setup
+
+### 1. Download and install the required tools on your computer
+
+### 2. How do I clone the repository?
+
 
 Via SSH:
 ```bash
@@ -29,7 +44,7 @@ Via HTTPS:
 git clone https://github.com/iborg-ai/bridge.git
 ```
 
-### 1.4 Install the node modules
+### 3. Install the node modules
 
 From the root of the repository, run
 
@@ -37,11 +52,11 @@ From the root of the repository, run
 npm install
 ```
 
-## 2. Connect your EEG headset
+## Connect your EEG headset
 
 Connect your EEG headset via bluetooth. The setup process is pretty straight forward similar to any bluetooth device that you want to pair. The NeuroSky EEG headset will be visible as 'MindWave Mobile'.
 
-## 3. Run the application
+## Run the application
 
 From the root of the repository, run
 ```bash
