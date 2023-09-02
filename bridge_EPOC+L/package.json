@@ -1,0 +1,34 @@
+{
+  "name": "bridge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "pkg": "pkg src/index.js --targets node12-linux-x64,node12-macos-x64,node12-windows-x64 -o ./binaries/bridge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iborg-ai/bridge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iborg-ai/bridge/issues"
+  },
+  "homepage": "https://github.com/iborg-ai/bridge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pkg": "^5.8.1",
+    "serialport": "^9.0.1",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.3.2",
+    "ws": "^7.5.9",
+    "child_process":"^1.0.2"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^2.1.11"
+  }
+}
