@@ -10,7 +10,7 @@ Epoc+(2019)
 
 ## Download
 
-[GitHub](https://github.com/iborg-ai/bridge)
+[GitHub](https://github.com/iborg-ai/bridge/tree/347cec6)
 
  *  MacOS Supported: Sierra, High Sierra, Mojave, higher may also avaliable
  
@@ -113,14 +113,14 @@ You will get your Serial Number from your terminal.
 
 Via SSH:
 ```bash
-git clone git@github.com:iborg-ai/bridge.git
+git clone --branch 347cec6  git@github.com:iborg-ai/bridge.git
 ```
 
 or
 
 Via HTTPS:
 ```bash
-git clone https://github.com/iborg-ai/bridge.git
+git clone --branch 347cec6 https://github.com/iborg-ai/bridge.git
 ```
 
 ### 3. Install the node modules
