@@ -82,10 +82,7 @@ You will see a data flow from your terminal.
 ## Problem & Solution
 "code":-32027,"message":"The application do not have permission to use the license."
 or "code":-32024,"message":"The license has expired."
-contact EMOTIVE support from 
-
-https://github.com/Emotiv/cortex-v2-example/issues/145
-
+contact EMOTIVE support from https://github.com/Emotiv/cortex-v2-example/issues/145
 ('You must accept access request from this app on CortexUI')
 
-open emotive lancher, Login, select accepte
+Y can open emotive lancher, click Login, select accepte, and run the application again.
