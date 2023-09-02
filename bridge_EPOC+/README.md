@@ -113,7 +113,7 @@ You will get your Serial Number from your terminal.
 
 Via SSH:
 ```bash
-git clone --branch 347cec6  git@github.com:iborg-ai/bridge.git
+git clone --branch 347cec6 git@github.com:iborg-ai/bridge.git
 ```
 
 or
