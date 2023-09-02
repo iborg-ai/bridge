@@ -141,6 +141,12 @@ Open index.js from "/crs", find the "serial_number", and enter your Serial Numbe
 
 Connect your EPOC+ headset via USB dongle, and trun it on.
 
+## Confirm your contact quality is perfect with EmotivePRO
+
+Open the EmotivePRO application and click Connect headset, then, click Next. You will see an electrode location map. Please adjust the metal electrode until it turns green.
+
+<img src="https://github.com/iborg-ai/bridge/blob/347cec6/bridge_EPOC%2B/IMG/Contact_Quality.png" width="450"/>
+
 ## Run the application
 
 From the root of the repository, run
