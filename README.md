@@ -6,7 +6,7 @@ Bridge is a connector for extracting the raw stream data from your headset and t
 ## Headset Support
 **_Bridge_MindWave_**  will support NeuroSky MindWave Mobile 2 EEG Sensor Starter Kit
 
-**_Bridge_EPOC+L_**  will support Epoc+ headset with a PRO-Lite license
+**_Bridge_EPOC+L_**  will support Epoc+ headset with a SDK license
 
 **_Bridge_EPOC+_** will support Epoc+ headset (2019)
 
