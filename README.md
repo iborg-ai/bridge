@@ -21,5 +21,7 @@ Bridge is a connector for extracting the raw stream data from your headset and t
 
  It is because some systems don't support 'cros' dependency. Please set connectionMode to 1 in index.js.
 
+ <img src="https://github.com/iborg-ai/bridge/blob/347cec6/bridge_EPOC%2B/IMG/connectionMode.png" width="350"/>
+
  
 
