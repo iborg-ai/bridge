@@ -85,4 +85,4 @@ or "code":-32024,"message":"The license has expired."
 contact EMOTIVE support from https://github.com/Emotiv/cortex-v2-example/issues/145
 ('You must accept access request from this app on CortexUI')
 
-You can open Emotive Lancher, click Login, select accepte, and run the application again.
+It is because you didn't login to your account. You can open Emotive Lancher, click Login, select Accepte, and run the application again.
