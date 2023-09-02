@@ -11,13 +11,13 @@ Bridge is a connector for extracting the raw stream data from your headset and t
 **_Bridge_EPOC+_** will support Epoc+ headset (2019)
 
 
-# Frequently asked questions
+## Frequently asked questions
 
-## 1. How do I reduce the samplying frequency of my EEG signals?
+### 1. How do I reduce the samplying frequency of my EEG signals?
 
  Epoc+ transmits wireless data at 128 or 256 Hz. You might change the value of "samplingFQ" in index.js to reduce the sampling rate.
 
- ## 2. The bridge is not able to connect with the IBORG website and blocked by CORS policy?
+ ### 2. The bridge is not able to connect with the IBORG website and blocked by CORS policy?
 
  It is because some systems don't support 'cros' dependency. Please set connectionMode to 1 in index.js.
 
