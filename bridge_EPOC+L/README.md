@@ -76,10 +76,15 @@ You will see a data flow from your terminal.
 <img src="https://github.com/iborg-ai/bridge/blob/347cec6/bridge_EPOC%2B/IMG/Rawdata.png" width="550"/>
 
 ## References
-* [Cotex API]([https://github.com/nikhiljay/brainwaves](https://emotiv.gitbook.io/cortex-api/data-subscription/subscribe))
+* [Cotex API](https://emotiv.gitbook.io/cortex-api/data-subscription/subscribe)
+
+
+## Problem & Solution
+"code":-32027,"message":"The application do not have permission to use the license."
+or "code":-32024,"message":"The license has expired."
+contact EMOTIVE support from 
 
 https://github.com/Emotiv/cortex-v2-example/issues/145
-
 
 ('You must accept access request from this app on CortexUI')
 
